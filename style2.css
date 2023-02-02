@@ -1,6 +1,8 @@
 :root {
   --verde-primario: #06aa48;
   --verde-secundario: #3bf184;
+  --azul-primario: rgb(27, 27, 218);
+  --azul-secundario: rgb(64, 64, 211);
 }
 
 * {
@@ -73,6 +75,7 @@ figcaption {
   color: darkgray;
   margin-bottom: 0px;
 }
+
 main {
   font-family: Roboto, Helvetica, sans-serif;
 }
@@ -125,6 +128,77 @@ footer {
   height: 60px;
 }
 
+body.dark-theme {
+  background-color: rgb(26, 26, 26);
+}
+
+body.dark-theme p {
+  color: #ddd;
+}
+
+body.dark-theme .topo,
+body.dark-theme footer {
+  background-image: linear-gradient(
+    to right,
+    var(--azul-primario),
+    var(--azul-secundario)
+  );
+}
+
+body.dark-theme article header {
+  color: var(--azul-primario);
+}
+
+body.dark-theme article {
+  border: 2px solid var(--azul-primario);
+}
+
+body.dark-theme .menu,
+body.dark-theme .menu li:hover {
+  background-color: var(--azul-secundario);
+}
+
+.toggle input[type="checkbox"] {
+  display: none;
+}
+
+.toggle label {
+  background-color: #777;
+  border: 2px solid #555;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  margin: 5px;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+  width: 50px;
+  height: 28px;
+}
+
+.toggle label::after {
+  background-color: #555;
+  border-radius: 50%;
+  content: " ";
+  cursor: pointer;
+  display: flex;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  transition: all ease-in-out 0.3s;
+  width: 20px;
+  height: 20px;
+}
+
+.toggle input[type="checkbox"]:checked ~ label {
+  background-color: #00a0fc;
+  border-color: #006dc9;
+}
+
+.toggle input[type="checkbox"]:checked ~ label::after {
+  background-color: #0054b0;
+  transform: translateX(26px);
+}
+
 @media (max-width: 850px) {
   .menu {
     display: none;
@@ -146,6 +220,7 @@ footer {
   input[type="checkbox"]:checked ~ .menu {
     display: block;
   }
+
   .hamburger {
     display: block;
   }
